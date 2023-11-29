@@ -1,0 +1,23 @@
+{
+  "manifest_version": 2,
+  "name": "Elephant Spy",
+  "version": "0.1",
+
+  "description": "Seeks out elephants and toots when one is spotted",
+
+  "icons": {
+    "48": "icons/elephant-48.png",
+    "96": "icons/elephant-96.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": ["*://*.boardgamearena.com/*"],
+      "js": ["elephant.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    "assets/elephant.mp3"
+  ]
+}
+
