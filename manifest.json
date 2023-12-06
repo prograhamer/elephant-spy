@@ -6,8 +6,9 @@
   "description": "Seeks out elephants and toots when one is spotted",
 
   "icons": {
-    "48": "icons/stomp.svg",
-    "96": "icons/stomp.svg"
+    "48": "icons/stomp-48.png",
+    "96": "icons/stomp-96.png",
+		"128": "icons/stomp-128.png"
   },
 
   "content_scripts": [

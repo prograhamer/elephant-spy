@@ -1,20 +1,23 @@
-let url = browser.runtime.getURL("assets/elephant.mp3");
-let trumpeter = document.createElement("audio");
-let source = document.createElement("source");
+let getURL;
+if (typeof chrome !== 'undefined') {
+	getURL = chrome.runtime.getURL;
+} else {
+	getURL = browser.runtime.getURL;
+}
+
+const url = getURL("assets/elephant.mp3");
+const trumpeter = document.createElement("audio");
+const source = document.createElement("source");
 source.src = url;
 source.type = "audio/mpeg";
 trumpeter.appendChild(source);
 
 document.body.append(trumpeter);
 
-if (document.querySelector('[id*="lephant"]') !== null) {
-	trumpeter.play();
-}
-
 let logger = (records, observer) => {
   for (const record of records) {
     for (const added of record.addedNodes) {
-			if (added.id && /[Ee]lephant/.test(added.id)) {
+			if (added.classList && added.classList.contains("ark-card-title") && /(african bush|asian) elephant/i.test(added.innerHTML)) {
 				trumpeter.play();
 			}
     }
