@@ -16,9 +16,6 @@
       "matches": ["*://*.boardgamearena.com/*"],
       "js": ["elephant.js"]
     }
-  ],
-  "web_accessible_resources": [
-    "assets/elephant.mp3"
   ]
 }
 
