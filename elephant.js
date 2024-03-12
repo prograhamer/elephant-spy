@@ -14,7 +14,6 @@ const getAudioElement = (asset) => {
 	source.src = url;
 	source.type = "audio/mpeg";
 	audio.appendChild(source);
-	document.body.append(audio);
 	return audio;
 }
 
@@ -33,7 +32,7 @@ const alerts = [
 	},
 ];
 
-let logger = (records, observer) => {
+const callback = (records, observer) => {
 	for (const record of records) {
 		for (const added of record.addedNodes) {
 			if (added.classList && added.classList.contains("ark-card") && added.classList.contains("animal-card")) {
@@ -56,5 +55,5 @@ const observerOptions = {
 	subtree: true,
 };
 
-const observer = new MutationObserver(logger);
+const observer = new MutationObserver(callback);
 observer.observe(document.querySelector("body"), observerOptions);
